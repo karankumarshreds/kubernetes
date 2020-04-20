@@ -7,10 +7,13 @@ spec:
   - image: alpine
     name: alpine
     command: ["/bin/sh", "-c"]
-    args: ["echo '123' > dbTable"] 
+    args: ["echo '123' > /karan/dbTable"] 
+    volumeMounts: 
+    - mountPath: /karan
+      name: data-volume ##map
 
   volumes: 
-  - name: data-volume
+  - name: data-volume ##map
     hostPath: 
       path: /data ##on host machine
       type: directory 
